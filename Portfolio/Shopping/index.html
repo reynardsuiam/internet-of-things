@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT13 Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🛒 IWT13</h1>
+    <p>Quality Products at Affordable Prices</p>
+
+    <button class="cart-btn" onclick="openCart()">
+        Cart (<span id="cart-count">0</span>)
+    </button>
+</header>
+
+
+<main class="products">
+
+
+<div class="card">
+
+<img src="images/laptop.jpg">
+
+<h2>Laptop</h2>
+
+<p class="price">55000</p>
+
+<p>15.6-inch display, Intel Core i5, 8GB RAM, 512GB SSD.</p>
+
+<button onclick="addToCart('Laptop',55000)">
+Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/phone.jpg">
+
+<h2>Smartphone</h2>
+
+<p class="price">89999</p>
+
+<p>6.5-inch AMOLED display, 128GB Storage, 50MP Camera.</p>
+
+<button onclick="addToCart('Smartphone',89999)">
+Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/headphones.jpg">
+
+<h2>Wireless Headphones</h2>
+
+<p class="price">3499</p>
+
+<p>Noise cancellation, Bluetooth 5.3, 30-hour battery life.</p>
+
+<button onclick="addToCart('Wireless Headphones',3499)">
+Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<img src="images/watch.png">
+
+<h2>Smart Watch</h2>
+
+<p class="price">4999</p>
+
+<p>Heart rate monitor, GPS, Fitness tracking, Waterproof.</p>
+
+<button onclick="addToCart('Smart Watch',4999)">
+Add to Cart
+</button>
+
+</div>
+
+
+</main>
+
+
+<!-- CART -->
+
+<div id="cart">
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3>Total: ₹<span id="total">0</span></h3>
+
+
+<button onclick="placeOrder()">
+Place Order
+</button>
+
+
+<button onclick="cancelOrder()" class="cancel">
+Cancel Order
+</button>
+
+
+<button onclick="closeCart()">
+Close
+</button>
+
+
+</div>
+
+
+
+<footer>
+
+<p>
+© 2026 My Online Store | All Rights Reserved
+</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

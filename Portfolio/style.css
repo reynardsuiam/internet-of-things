@@ -1,0 +1,293 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", Arial, sans-serif;
+}
+
+
+body{
+    background:#f5f7fb;
+    color:#333;
+}
+
+
+/* Navigation */
+
+nav{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 10%;
+
+    background:#111827;
+    color:white;
+
+}
+
+
+nav ul{
+
+    display:flex;
+    list-style:none;
+    gap:30px;
+
+}
+
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+
+nav a:hover{
+
+    color:#38bdf8;
+
+}
+
+
+
+/* Hero */
+
+.hero{
+
+    height:80vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    rgba(15,23,42,0.8),
+    rgba(15,23,42,0.8)
+    ),
+    url("background.jpg");
+
+    background-size:cover;
+
+    color:white;
+
+}
+
+
+.hero h1{
+
+    font-size:50px;
+
+}
+
+
+.hero h2{
+
+    color:#38bdf8;
+    margin:15px;
+
+}
+
+
+.hero p{
+
+    font-size:18px;
+    max-width:600px;
+
+}
+
+
+
+button{
+
+    margin-top:25px;
+
+    padding:12px 30px;
+
+    background:#38bdf8;
+
+    border:none;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+button:hover{
+
+    background:#0284c7;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* About */
+
+.about{
+
+    padding:60px 15%;
+    text-align:center;
+
+}
+
+
+.about h2{
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* Projects */
+
+#projects{
+
+    padding:60px 10%;
+
+}
+
+
+.title{
+
+    text-align:center;
+    margin-bottom:40px;
+
+}
+
+
+
+.project-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.project-card{
+
+    background:white;
+
+    width:330px;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+
+}
+
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.icon{
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+
+.project-card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+.project-card p{
+
+    color:#666;
+
+    line-height:1.6;
+
+}
+
+
+
+/* Contact */
+
+.contact{
+
+    text-align:center;
+
+    padding:50px;
+
+    background:#111827;
+
+    color:white;
+
+}
+
+
+
+/* Footer */
+
+footer{
+
+    text-align:center;
+
+    padding:15px;
+
+    background:#020617;
+
+    color:white;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    nav{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:35px;
+
+    }
+
+}
