@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="calculator">
+
+<h2>Calculator</h2>
+
+<div class="display">
+<input type="text" id="screen" readonly>
+</div>
+
+<div class="mode">
+<label>
+<input type="checkbox" id="mode">
+Radian Mode
+</label>
+</div>
+
+<div class="buttons">
+
+<button onclick="clearScreen()">C</button>
+<button onclick="backspace()">⌫</button>
+<button onclick="insert('(')">(</button>
+<button onclick="insert(')')">)</button>
+<button onclick="insert('/')">÷</button>
+
+<button onclick="func('sin')">sin</button>
+<button onclick="func('cos')">cos</button>
+<button onclick="func('tan')">tan</button>
+<button onclick="func('sqrt')">√</button>
+<button onclick="insert('*')">×</button>
+
+<button onclick="func('log')">log</button>
+<button onclick="func('ln')">ln</button>
+<button onclick="insert('**2')">x²</button>
+<button onclick="insert('**')">xʸ</button>
+<button onclick="insert('-')">−</button>
+
+<button onclick="insert('7')">7</button>
+<button onclick="insert('8')">8</button>
+<button onclick="insert('9')">9</button>
+<button onclick="factorial()">x!</button>
+<button onclick="insert('+')">+</button>
+
+<button onclick="insert('4')">4</button>
+<button onclick="insert('5')">5</button>
+<button onclick="insert('6')">6</button>
+<button onclick="insert('3.1415926535')">π</button>
+<button onclick="calculate()" class="equal" rowspan="2">=</button>
+
+<button onclick="insert('1')">1</button>
+<button onclick="insert('2')">2</button>
+<button onclick="insert('3')">3</button>
+<button onclick="insert('2.718281828')">e</button>
+
+<button onclick="insert('0')" class="zero">0</button>
+<button onclick="insert('.')">.</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
