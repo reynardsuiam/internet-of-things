@@ -14,3 +14,11 @@ CREATE TABLE users (
     role ENUM('admin', 'employee') NOT NULL DEFAULT 'employee',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE users
+ADD COLUMN status ENUM('pending', 'approved', 'rejected')
+DEFAULT 'pending';
+
+UPDATE users
+SET status = 'approved'
+WHERE role = 'admin';

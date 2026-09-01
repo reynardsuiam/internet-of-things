@@ -53,16 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             );
 
             $role = "employee";
+            $status = "pending";
 
             $stmt = $conn->prepare(
                 "INSERT INTO users
                 (full_name, email, password, phone, department,
-                 designation, address, role)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                 designation, address, role, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             );
 
             $stmt->bind_param(
-                "ssssssss",
+                "sssssssss",
                 $full_name,
                 $email,
                 $hashed_password,
@@ -70,7 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $department,
                 $designation,
                 $address,
-                $role
+                $role,
+                $status
             );
 
             if ($stmt->execute()) {

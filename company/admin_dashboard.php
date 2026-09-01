@@ -7,7 +7,7 @@ requireRole("admin");
 
 $stmt = $conn->prepare(
     "SELECT id, full_name, email, phone, department,
-            designation, address, created_at
+            designation, address, status, created_at
      FROM users
      WHERE role = 'employee'
      ORDER BY created_at DESC"
@@ -75,9 +75,7 @@ $employees = $stmt->get_result();
         <table>
 
             <thead>
-
                 <tr>
-
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
@@ -86,10 +84,11 @@ $employees = $stmt->get_result();
                     <th>Designation</th>
                     <th>Address</th>
                     <th>Registered</th>
-
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
-
             </thead>
+
 
             <tbody>
 
@@ -131,7 +130,40 @@ $employees = $stmt->get_result();
                             <?= htmlspecialchars($employee["created_at"]) ?>
                         </td>
 
+                        <!-- Status -->
+                        <td>
+                            <?= htmlspecialchars($employee["status"]) ?>
+                        </td>
+
+                        <!-- Action -->
+                        <td>
+
+                            <?php if ($employee["status"] === "pending"): ?>
+
+                                <a href="approve.php?id=<?= $employee["id"] ?>"
+                                class="btn">
+                                    Approve
+                                </a>
+
+                                <a href="reject.php?id=<?= $employee["id"] ?>"
+                                class="btn secondary">
+                                    Reject
+                                </a>
+
+                            <?php elseif ($employee["status"] === "approved"): ?>
+
+                                Approved
+
+                            <?php elseif ($employee["status"] === "rejected"): ?>
+
+                                Rejected
+
+                            <?php endif; ?>
+
+                        </td>
+
                     </tr>
+
 
                 <?php endwhile; ?>
 
@@ -139,7 +171,7 @@ $employees = $stmt->get_result();
 
                 <tr>
 
-                    <td colspan="8">
+                    <td colspan="10">
                         No employees registered yet.
                     </td>
 

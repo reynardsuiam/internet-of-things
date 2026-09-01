@@ -22,10 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
 
         $stmt = $conn->prepare(
-            "SELECT id, full_name, email, password, role
-             FROM users
-             WHERE email = ?"
+            "SELECT id, full_name, email, password, role, status
+            FROM users
+            WHERE email = ?"
         );
+
 
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -38,6 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if (password_verify($password, $user["password"])) {
 
+                if ($user["status"] === "pending") {
+                    $message = "Your account is waiting for admin approval.";
+                } elseif ($user["status"] === "rejected") {
+                    $message = "Your account registration was rejected.";
+                } else {
+
                 session_regenerate_id(true);
 
                 $_SESSION["user_id"] = $user["id"];
@@ -46,20 +53,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["role"] = $user["role"];
 
                 if ($user["role"] === "admin") {
-
                     header("Location: admin_dashboard.php");
-
                 } else {
-
                     header("Location: employee_dashboard.php");
                 }
 
                 exit();
-
-            } else {
-
-                $message = "Invalid email or password.";
             }
+
+        } else {
+            $message = "Invalid email or password.";
+        }
+
 
         } else {
 
