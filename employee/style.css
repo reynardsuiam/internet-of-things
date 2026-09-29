@@ -19,14 +19,16 @@ body {
    EMPLOYEE FORM - index.html
 ========================================================= */
 
+/* =========================================================
+   EMPLOYEE FORM - index.html
+========================================================= */
+
 .form-page {
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 30px;
+    padding: 40px 20px;
 }
 
 .container {
@@ -39,6 +41,13 @@ body {
         0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+
+/* Short screens */
+@media (max-height: 900px) {
+    .form-page {
+        align-items: flex-start;
+    }
+}
 
 /* Navigation */
 
