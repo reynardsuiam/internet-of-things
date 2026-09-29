@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: index.php");
+            header("Location: contacts.php");
             exit;
         }
 
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p>Create a new contact entry</p>
         </div>
 
-        <a href="index.php" class="btn btn-secondary">Back</a>
+        <a href="contacts.php" class="btn btn-secondary">Back</a>
     </div>
 
     <div class="card">
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 Save Contact
             </button>
 
-            <a href="index.php" class="btn btn-secondary">
+            <a href="contacts.php" class="btn btn-secondary">
                 Cancel
             </a>
 

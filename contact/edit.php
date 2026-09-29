@@ -2,7 +2,7 @@
 include "db.php";
 
 if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
-    header("Location: index.php");
+    header("Location: contacts.php");
     exit;
 }
 
@@ -16,7 +16,7 @@ $result = $stmt->get_result();
 $contact = $result->fetch_assoc();
 
 if (!$contact) {
-    header("Location: index.php");
+    header("Location: contacts.php");
     exit;
 }
 
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: index.php");
+            header("Location: contacts.php");
             exit;
         }
 
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p>Update contact information</p>
         </div>
 
-        <a href="index.php" class="btn btn-secondary">
+        <a href="contacts.php" class="btn btn-secondary">
             Back
         </a>
 
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 Update Contact
             </button>
 
-            <a href="index.php" class="btn btn-secondary">
+            <a href="contacts.php" class="btn btn-secondary">
                 Cancel
             </a>
 

@@ -1,63 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Employee Details</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Employee | EmployeeHub</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <div class="container">
 
-        <h2>Employee Details Form</h2>
+        <!-- Navigation -->
+
+        <div class="navigation">
+
+            <a href="dashboard.php" class="nav-button dashboard-button">
+                📊 Dashboard
+            </a>
+
+            <a href="employees.php" class="nav-button employees-button">
+                👥 View Employees
+            </a>
+
+        </div>
+
+
+        <!-- Page Heading -->
+
+        <div class="heading">
+
+            <h2>Employee Details Form</h2>
+
+            <p>
+                Add a new employee to the system
+            </p>
+
+        </div>
+
+
+        <!-- Employee Form -->
 
         <form action="insert.php" method="POST">
 
-            <label for="id">Employee ID</label>
-            <input type="text" id="id" name="id"
-                   placeholder="Enter Employee ID (e.g. EMP001)"
-                   required>
 
-            <label for="name">Employee Name</label>
-            <input type="text" id="name" name="name"
-                   placeholder="Enter employee name"
-                   required>
+            <!-- Employee ID -->
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email"
-                   placeholder="Enter email address"
-                   required>
+            <div class="form-group">
 
-            <label for="phone">Phone Number</label>
-            <input type="text" id="phone" name="phone"
-                   placeholder="Enter phone number"
-                   required>
+                <label for="id">
+                    Employee ID
+                </label>
 
-            <label for="department">Department</label>
-            <select id="department" name="department" required>
-                <option value="">-- Select Department --</option>
-                <option value="IT">IT</option>
-                <option value="HR">HR</option>
-                <option value="Finance">Finance</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Sales">Sales</option>
-            </select>
+                <input
+                    type="text"
+                    id="id"
+                    name="id"
+                    placeholder="Enter Employee ID (e.g. EMP001)"
+                    required
+                >
 
-            <label for="salary">Salary</label>
-            <input type="number" id="salary" name="salary"
-                   placeholder="Enter salary"
-                   step="0.01"
-                   required>
+            </div>
 
-            <button type="submit">Save Employee</button>
+
+            <!-- Employee Name -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Employee Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter employee name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter email address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter phone number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Department -->
+
+            <div class="form-group">
+
+                <label for="department">
+                    Department
+                </label>
+
+                <select
+                    id="department"
+                    name="department"
+                    required
+                >
+
+                    <option value="">
+                        -- Select Department --
+                    </option>
+
+                    <option value="IT">
+                        IT
+                    </option>
+
+                    <option value="HR">
+                        HR
+                    </option>
+
+                    <option value="Finance">
+                        Finance
+                    </option>
+
+                    <option value="Marketing">
+                        Marketing
+                    </option>
+
+                    <option value="Sales">
+                        Sales
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Salary -->
+
+            <div class="form-group">
+
+                <label for="salary">
+                    Salary
+                </label>
+
+                <input
+                    type="number"
+                    id="salary"
+                    name="salary"
+                    placeholder="Enter salary"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Submit -->
+
+            <button
+                type="submit"
+                class="save-button"
+            >
+                Save Employee
+            </button>
 
         </form>
+
+
+        <!-- Footer -->
+
+        <div class="footer">
+
+            Employee Management System
+
+        </div>
 
     </div>
 
 </body>
+
 </html>

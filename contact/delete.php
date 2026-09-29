@@ -15,7 +15,7 @@ if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
     $stmt->execute();
 }
 
-header("Location: index.php");
+header("Location: contacts.php");
 exit;
 
 ?>

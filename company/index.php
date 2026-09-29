@@ -37,11 +37,6 @@
             Innovative technology solutions for a smarter future.
         </p>
 
-        <div class="hero-buttons">
-            <a href="register.php" class="btn">Employee Registration</a>
-            <a href="login.php" class="btn secondary">Login</a>
-        </div>
-
     </div>
 
 </section>
