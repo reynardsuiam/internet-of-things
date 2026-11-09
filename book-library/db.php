@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "book_library";
+$host = "sql213.infinityfree.com";
+$username = "if0_43395628";
+$password = "qHUhFcgaCIN";
+$database = "if0_43395628_book13";
 
 $conn = new mysqli(
     $host,
