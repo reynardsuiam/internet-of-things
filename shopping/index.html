@@ -1,139 +1,191 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IWT13 Store</title>
+    <title>IWT13 | Online Shopping</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>🛒 IWT13</h1>
-    <p>Quality Products at Affordable Prices</p>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">🛒 IWT13<span> Store</span></div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+    </div>
 
     <button class="cart-btn" onclick="openCart()">
-        Cart (<span id="cart-count">0</span>)
+        🛍️ Cart <span id="cart-count">0</span>
     </button>
-</header>
+</nav>
 
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="tagline">WELCOME TO IWT13 STORE</p>
 
-<main class="products">
+        <h1>Discover Products<br>You'll Love.</h1>
 
+        <p>
+            Shop your favourite gadgets at affordable prices.
+            Quality products, great value!
+        </p>
 
-<div class="card">
+        <a href="#products" class="shop-btn">Shop Now →</a>
+    </div>
+</section>
 
-<img src="images/laptop.jpg">
+<!-- Products Section -->
+<main id="products">
 
-<h2>Laptop</h2>
+    <div class="section-heading">
+        <p>OUR COLLECTION</p>
+        <h2>Featured Products</h2>
+        <span>Explore our latest collection of electronics.</span>
+    </div>
 
-<p class="price">55000</p>
+    <div class="products">
 
-<p>15.6-inch display, Intel Core i5, 8GB RAM, 512GB SSD.</p>
+        <div class="card">
+            <div class="image-container">
+                <img src="images/laptop.jpg" alt="Laptop">
+            </div>
 
-<button onclick="addToCart('Laptop',55000)">
-Add to Cart
-</button>
+            <div class="card-content">
+                <span class="category">COMPUTERS</span>
+                <h3>Laptop</h3>
+                <p class="description">
+                    15.6-inch display, Intel Core i5, 8GB RAM, 512GB SSD.
+                </p>
 
-</div>
+                <div class="card-bottom">
+                    <span class="price">₹55,000</span>
+                    <button onclick="addToCart('Laptop',55000)">Add +</button>
+                </div>
+            </div>
+        </div>
 
+        <div class="card">
+            <div class="image-container">
+                <img src="images/phone.jpg" alt="Smartphone">
+            </div>
 
+            <div class="card-content">
+                <span class="category">MOBILE PHONES</span>
+                <h3>Smartphone</h3>
+                <p class="description">
+                    6.5-inch AMOLED display, 128GB Storage, 50MP Camera.
+                </p>
 
-<div class="card">
+                <div class="card-bottom">
+                    <span class="price">₹89,999</span>
+                    <button onclick="addToCart('Smartphone',89999)">Add +</button>
+                </div>
+            </div>
+        </div>
 
-<img src="images/phone.jpg">
+        <div class="card">
+            <div class="image-container">
+                <img src="images/headphones.jpg" alt="Wireless Headphones">
+            </div>
 
-<h2>Smartphone</h2>
+            <div class="card-content">
+                <span class="category">ACCESSORIES</span>
+                <h3>Wireless Headphones</h3>
+                <p class="description">
+                    Noise cancellation, Bluetooth 5.3, 30-hour battery life.
+                </p>
 
-<p class="price">89999</p>
+                <div class="card-bottom">
+                    <span class="price">₹3,499</span>
+                    <button onclick="addToCart('Wireless Headphones',3499)">Add +</button>
+                </div>
+            </div>
+        </div>
 
-<p>6.5-inch AMOLED display, 128GB Storage, 50MP Camera.</p>
+        <div class="card">
+            <div class="image-container">
+                <img src="images/watch.png" alt="Smart Watch">
+            </div>
 
-<button onclick="addToCart('Smartphone',89999)">
-Add to Cart
-</button>
+            <div class="card-content">
+                <span class="category">WEARABLES</span>
+                <h3>Smart Watch</h3>
+                <p class="description">
+                    Heart rate monitor, GPS, Fitness tracking, Waterproof.
+                </p>
 
-</div>
+                <div class="card-bottom">
+                    <span class="price">₹4,999</span>
+                    <button onclick="addToCart('Smart Watch',4999)">Add +</button>
+                </div>
+            </div>
+        </div>
 
-
-
-<div class="card">
-
-<img src="images/headphones.jpg">
-
-<h2>Wireless Headphones</h2>
-
-<p class="price">3499</p>
-
-<p>Noise cancellation, Bluetooth 5.3, 30-hour battery life.</p>
-
-<button onclick="addToCart('Wireless Headphones',3499)">
-Add to Cart
-</button>
-
-</div>
-
-
-
-<div class="card">
-
-<img src="images/watch.png">
-
-<h2>Smart Watch</h2>
-
-<p class="price">4999</p>
-
-<p>Heart rate monitor, GPS, Fitness tracking, Waterproof.</p>
-
-<button onclick="addToCart('Smart Watch',4999)">
-Add to Cart
-</button>
-
-</div>
-
+    </div>
 
 </main>
 
+<!-- Cart Background -->
+<div id="overlay" onclick="closeCart()"></div>
 
-<!-- CART -->
+<!-- Shopping Cart Sidebar -->
+<aside id="cart">
 
-<div id="cart">
+    <div class="cart-header">
+        <div>
+            <h2>Your Cart</h2>
+            <p id="cart-subtitle">0 items in your cart</p>
+        </div>
 
-<h2>Your Cart</h2>
+        <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
 
-<div id="cart-items"></div>
+    <div id="cart-items"></div>
 
-<h3>Total: ₹<span id="total">0</span></h3>
+    <div class="cart-footer">
 
+        <div class="total-row">
+            <span>Total Amount</span>
+            <h2>₹<span id="total">0</span></h2>
+        </div>
 
-<button onclick="placeOrder()">
-Place Order
-</button>
+        <button class="checkout-btn" onclick="placeOrder()">
+            Place Order →
+        </button>
 
+        <button class="clear-btn" onclick="cancelOrder()">
+            Clear Cart
+        </button>
 
-<button onclick="cancelOrder()" class="cancel">
-Cancel Order
-</button>
+    </div>
 
+</aside>
 
-<button onclick="closeCart()">
-Close
-</button>
+<!-- Notification -->
+<div id="toast"></div>
 
-
+<!-- Order Success Message -->
+<div id="success-message">
+    <div class="success-icon">✓</div>
+    <h2>Order Placed Successfully!</h2>
+    <p>Thank you for shopping with IWT13 Store.</p>
+    <button onclick="closeSuccess()">Continue Shopping</button>
 </div>
 
-
-
+<!-- Footer -->
 <footer>
-
-<p>
-© 2026 My Online Store | All Rights Reserved
-</p>
-
+    <h2>🛒 IWT13 Store</h2>
+    <p>Quality Products at Affordable Prices.</p>
+    <p class="copyright">
+        © 2026 IWT13 Store | All Rights Reserved
+    </p>
 </footer>
-
 
 <script src="script.js"></script>
 

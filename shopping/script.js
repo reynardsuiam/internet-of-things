@@ -1,229 +1,206 @@
+
 let cart = [];
 
+// Format Indian currency
+function formatPrice(price) {
+    return price.toLocaleString("en-IN");
+}
 
-// Add item
+// Show notification
+function showToast(message) {
 
-function addToCart(name,price){
+    let toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+// Add item to cart
+function addToCart(name, price) {
 
     let item = cart.find(product => product.name === name);
 
-
-    if(item){
-
+    if (item) {
         item.quantity++;
-
-    }
-
-    else{
-
+    } else {
         cart.push({
-
-            name:name,
-            price:price,
-            quantity:1
-
+            name: name,
+            price: price,
+            quantity: 1
         });
-
     }
-
 
     updateCart();
 
-
-    alert(name + " added to cart");
-
+    showToast(name + " added to cart ✓");
 }
 
+// Update cart
+function updateCart() {
 
+    let cartItems = document.getElementById("cart-items");
 
-// Update cart display
+    cartItems.innerHTML = "";
 
-function updateCart(){
+    let total = 0;
+    let count = 0;
 
+    if (cart.length === 0) {
 
-let cartItems=document.getElementById("cart-items");
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <div>🛍️</div>
+                <h3>Your cart is empty</h3>
+                <p>Add some products to get started!</p>
+                <button onclick="closeCart()">Continue Shopping</button>
+            </div>
+        `;
+    }
 
-cartItems.innerHTML="";
+    cart.forEach((item, index) => {
 
+        let subtotal = item.price * item.quantity;
 
-let total=0;
+        total += subtotal;
+        count += item.quantity;
 
-let count=0;
+        cartItems.innerHTML += `
 
+            <div class="cart-item">
 
+                <div class="cart-item-info">
 
-cart.forEach((item,index)=>{
+                    <h3>${item.name}</h3>
 
+                    <p>₹${formatPrice(item.price)}</p>
 
-total += item.price * item.quantity;
+                    <div class="quantity-controls">
 
-count += item.quantity;
+                        <button onclick="decrease(${index})">−</button>
 
+                        <span>${item.quantity}</span>
 
+                        <button onclick="increase(${index})">+</button>
 
-cartItems.innerHTML += `
+                    </div>
 
-<div class="cart-item">
+                </div>
 
-<h3>${item.name}</h3>
+                <div class="cart-item-right">
 
-<p>
-₹${item.price} x ${item.quantity}
-</p>
+                    <strong>₹${formatPrice(subtotal)}</strong>
 
+                    <button class="remove-btn"
+                    onclick="removeItem(${index})">
+                    Remove
+                    </button>
 
-<button onclick="increase(${index})">
-+
-</button>
+                </div>
 
+            </div>
 
-<button onclick="decrease(${index})">
--
-</button>
+        `;
+    });
 
+    document.getElementById("total").textContent = formatPrice(total);
 
-<button onclick="removeItem(${index})">
-Remove
-</button>
+    document.getElementById("cart-count").textContent = count;
 
-
-</div>
-
-`;
-
-});
-
-
-
-document.getElementById("total").innerHTML=total;
-
-document.getElementById("cart-count").innerHTML=count;
-
-
+    document.getElementById("cart-subtitle").textContent =
+        count + (count === 1 ? " item in your cart" : " items in your cart");
 }
-
-
 
 // Increase quantity
+function increase(index) {
 
-function increase(index){
+    cart[index].quantity++;
 
-cart[index].quantity++;
-
-updateCart();
-
+    updateCart();
 }
-
-
 
 // Decrease quantity
+function decrease(index) {
 
-function decrease(index){
+    if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+    } else {
+        cart.splice(index, 1);
+    }
 
-
-if(cart[index].quantity>1){
-
-cart[index].quantity--;
-
+    updateCart();
 }
-
-else{
-
-cart.splice(index,1);
-
-}
-
-
-updateCart();
-
-
-}
-
-
 
 // Remove item
+function removeItem(index) {
 
-function removeItem(index){
+    let name = cart[index].name;
 
-cart.splice(index,1);
+    cart.splice(index, 1);
 
-updateCart();
+    updateCart();
 
+    showToast(name + " removed from cart");
 }
 
+// Open cart sidebar
+function openCart() {
 
+    document.getElementById("cart").classList.add("active");
 
-// Open cart
-
-function openCart(){
-
-document.getElementById("cart").style.display="block";
-
+    document.getElementById("overlay").classList.add("active");
 }
 
+// Close cart sidebar
+function closeCart() {
 
+    document.getElementById("cart").classList.remove("active");
 
-// Close cart
-
-function closeCart(){
-
-document.getElementById("cart").style.display="none";
-
+    document.getElementById("overlay").classList.remove("active");
 }
 
+// Clear cart
+function cancelOrder() {
 
+    if (cart.length === 0) {
+        showToast("Your cart is already empty");
+        return;
+    }
+
+    cart = [];
+
+    updateCart();
+
+    showToast("Cart cleared successfully");
+}
 
 // Place order
+function placeOrder() {
 
-function placeOrder(){
+    if (cart.length === 0) {
+        showToast("Please add products to your cart first");
+        return;
+    }
 
+    cart = [];
 
-if(cart.length===0){
+    updateCart();
 
-alert("Your cart is empty!");
+    closeCart();
 
-return;
-
+    document.getElementById("success-message").classList.add("active");
 }
 
+// Close success message
+function closeSuccess() {
 
-alert("Order placed successfully!");
+    document.getElementById("success-message").classList.remove("active");
+}
 
-
-cart=[];
-
+// Initial display
 updateCart();
-
-closeCart();
-
-
-}
-
-
-
-// Cancel order
-
-function cancelOrder(){
-
-
-if(cart.length===0){
-
-alert("No order to cancel!");
-
-return;
-
-}
-
-
-cart=[];
-
-updateCart();
-
-
-alert("Order cancelled successfully");
-
-
-closeCart();
-
-
-}
