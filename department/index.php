@@ -47,7 +47,7 @@ session_start();
 
     <div class="hero-content">
 
-        <h1>Computer Science Department</h1>
+        <h1>Department of Computer Science</h1>
 
         <p>
             Welcome to our department. Learn, innovate,
