@@ -2,10 +2,10 @@
 
 $servername = "sql213.infinityfree.com";
 $username = "if0_43395628";
-$password = "qHUhFcgaCIN ";
+$password = "qHUhFcgaCIN";
 $database = "if0_43395628_employee13";
 
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database, 3306);
 
 if ($conn->connect_error) {
     die("Database connection failed: " . $conn->connect_error);
